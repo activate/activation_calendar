@@ -22,12 +22,19 @@
         <label for='date_end'>To</label>
         <%= text_field_tag 'date[end]', @end_date.strftime('%Y-%m-%d'), :id => 'date_end', :class => 'date_picker' %>
       </div>
-      <div>
-        <label for="commit">&nbsp;</label>
-        <%= submit_tag 'Filter' %>
-        <span class="clear_filter"><%= link_to 'Reset', events_url %></span>
-      </div>
-    </div>
+  	</div>
+     <div id='tag_search_box'>
+       <label for='tag_search' style='text-align:left; padding-left:20px; padding-right:10px; width:auto;'>Tag</label>
+	<% @tags = ActsAsTaggableOn::Tag.all %>
+	<% options = "<option>Select a tag</option>" + options_for_select(@tags) %>
+	<%= select_tag(:tag_search, options.html_safe, :style => "width:114px;") %>
+     </div>
+	<br/>
+     <div>
+       <label for="commit">&nbsp;</label>
+       <%= submit_tag 'Filter' %>
+       <span class="clear_filter"><%= link_to 'Reset', events_url %></span>
+     </div>
     <% end %>
     
     <h3>Subscribe to</h3>
