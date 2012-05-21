@@ -55,6 +55,7 @@ class Event < ActiveRecord::Base
     :with => /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,
     :allow_blank => true,
     :allow_nil => true
+  validates_uniqueness_of :ical_id, :allow_nil => true, :allow_blank => true
 
   include ValidatesBlacklistOnMixin
   validates_blacklist_on :title, :description, :url
@@ -329,6 +330,8 @@ class Event < ActiveRecord::Base
     event.url          = abstract_event.url
     event.venue        = Venue.from_abstract_location(abstract_event.location, source) if abstract_event.location
     event.tag_list     = abstract_event.tags.join(',')
+    event.ical_id      = abstract_event.uid
+
 
     duplicates = event.find_exact_duplicates
     event = duplicates.first.progenitor if duplicates
