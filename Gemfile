@@ -88,7 +88,8 @@ gem 'exception_notification', '2.6.1'
 gem 'rails3-jquery-autocomplete'
 gem 'haml'
 gem 'formtastic-bootstrap', :git => 'git@github.com:activate/formtastic-bootstrap.git'
-gem 'rails_admin'
+gem 'devise'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => "rails-3.0"
 
 # gem 'paper_trail_manager', :git => 'https://github.com/igal/paper_trail_manager.git'
 # gem 'paper_trail_manager', :path => '../paper_trail_manager'
