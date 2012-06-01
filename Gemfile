@@ -87,7 +87,7 @@ gem 'progress_bar', '0.4.0'
 gem 'exception_notification', '2.6.1'
 gem 'rails3-jquery-autocomplete'
 gem 'haml'
-gem 'formtastic-bootstrap', :git => 'git@github.com:activate/formtastic-bootstrap.git'
+gem 'formtastic-bootstrap', :git => 'git://github.com/activate/formtastic-bootstrap.git'
 gem 'devise'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git', :branch => "rails-3.0"
 
