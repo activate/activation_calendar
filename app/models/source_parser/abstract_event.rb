@@ -6,8 +6,7 @@ class SourceParser
     :end_time,
     :url,
     :location,
-    :tags,
-    :uid )
+    :tags)
 
   class AbstractEvent
     def initialize(*args)

@@ -92,7 +92,6 @@ class SourceParser # :nodoc:
             event.title       = component.summary
             event.description = component.description
             event.url         = component.url
-            event.uid         = component.uid
 
             SourceParser::Ical.dates_for_tz(component, event)
 
