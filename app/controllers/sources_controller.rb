@@ -9,7 +9,7 @@ class SourcesController < ApplicationController
     @source.organization = Organization.find(params[:organization_id])
     @source.save
 
-    @source.events.future.delete_all # Before creating events, find all events in the future attached to that source and delete them so we can re-import events
+
     
     @events = nil # nil means events were never assigned, while [] means no events were found
 
