@@ -10,6 +10,7 @@ class SourcesController < ApplicationController
     @source.save
 
 
+    
     @events = nil # nil means events were never assigned, while [] means no events were found
 
     valid = @source.valid?
