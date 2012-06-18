@@ -10,6 +10,7 @@ class SourcesController < ApplicationController
     @source.save
 
 
+    
     @events = nil # nil means events were never assigned, while [] means no events were found
 
     valid = @source.valid?
@@ -57,6 +58,27 @@ class SourcesController < ApplicationController
         format.xml  { render :xml => @source.errors, :status => :unprocessable_entity }
       end
     end
+  end
+  
+  def import_all # Controller for cron imports
+    fresh_sources = Source.all.reject{ |s| s.events.future.length < 1 } # Could add some random element here to make sure we're not hitting all the sources
+    errors = []
+
+    fresh_sources.each do |source|
+      begin
+        source.create_events!
+      rescue
+        # Could have more robust error hadndling here
+        errors.push( { :source => source, :error => 'hey there was an error' } )
+      end
+    end
+    
+    if errors.length < 1
+      render :text => '', :layout => false #Render nothing if cron is succesful 
+    else
+      render :text => errors, :layout => false #Should come up some something better if it fails
+    end
+        
   end
   
   # GET /sources
