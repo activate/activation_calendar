@@ -6,6 +6,9 @@ class EventsController < ApplicationController
   def index
     @start_date = date_or_default_for(:start)
     @end_date = date_or_default_for(:end)
+    @tag_search = params[:tag_search]
+
+    # TODO: Include tag_search in this query:
 
     query = Event.non_duplicates.ordered_by_ui_field(params[:order]).includes(:venue, :tags)
     @events = params[:date] ?
