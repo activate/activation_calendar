@@ -1,0 +1,12 @@
+This project has moved to <http://github.com/activate/ActivateHub>.
+
+Please also be advised that the master branch in the ActivateHub repo
+is based off the new_master branch in this repo, not master; master has
+been out of date and deviated in ways that made it difficult to merge
+back together.  Therefore, unless you have outstanding changes, it is
+recommended that you perform a fresh clone of the repository.
+
+If you have outstanding changes and are not sure how to copy them across
+to the new project, push the changes to your own personal copy of this
+repo on GitHub and open an issue in the new ActivateHub project to let us
+know.
